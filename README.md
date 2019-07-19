@@ -1,1 +1,1 @@
-# mailwizz-python-sdk
+# Mailwizz-python-sdk

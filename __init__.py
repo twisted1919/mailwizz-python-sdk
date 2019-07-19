@@ -1,0 +1,1 @@
+name = 'Mailwizz Python SDK'
