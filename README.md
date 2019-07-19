@@ -1,0 +1,1 @@
+# mailwizz-python-sdk
