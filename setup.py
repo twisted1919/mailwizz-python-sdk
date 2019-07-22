@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='mailwizz-python-sdk',
-    version='1.0.5',
+    version='1.0.0',
     packages=setuptools.find_packages(),
     url='https://www.mailwizz.com',
     license='MIT',
