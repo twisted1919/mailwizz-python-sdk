@@ -17,3 +17,7 @@ You can either download latest version of the code or you can install it via pip
 `pip install mailwizz-python-sdk`  
 Then follow the instructions from `examples/setup_api.py` file.
 
+
+### Python packaging reference    
+1. https://packaging.python.org/tutorials/packaging-projects/  
+2. https://packaging.python.org/tutorials/installing-packages/#creating-virtual-environments  
