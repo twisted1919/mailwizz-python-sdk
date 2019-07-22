@@ -105,3 +105,4 @@ venv.bak/
 
 #PyCharm settings
 .idea
+.DS_Store
