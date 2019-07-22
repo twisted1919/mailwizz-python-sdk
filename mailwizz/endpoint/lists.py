@@ -1,5 +1,5 @@
-from base import Base
-from client import Client
+from mailwizz.base import Base
+from mailwizz.client import Client
 
 
 class Lists(Base):

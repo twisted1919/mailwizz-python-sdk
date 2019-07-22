@@ -1,5 +1,5 @@
-from base import Base
-from request import Request
+from mailwizz.base import Base
+from mailwizz.request import Request
 
 
 class Client(Base):

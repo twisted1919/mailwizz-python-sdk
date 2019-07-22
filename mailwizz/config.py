@@ -1,6 +1,6 @@
 from urllib.parse import urlparse
 
-from base import Base
+from mailwizz.base import Base
 
 
 class Config(Base):

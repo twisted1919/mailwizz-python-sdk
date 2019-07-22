@@ -8,7 +8,7 @@ import urllib.parse
 
 from collections import OrderedDict
 from multidimensional_urlencode import urlencode
-from base import Base
+from mailwizz.base import Base
 
 
 class Request(Base):
