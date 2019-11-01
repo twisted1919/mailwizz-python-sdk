@@ -1,6 +1,6 @@
 from datetime import datetime
 from setup_api import setup
-from endpoint.transactional_emails import TransactionalEmails
+from mailwizz.endpoint.transactional_emails import TransactionalEmails
 
 """
 SETUP THE API

@@ -1,5 +1,5 @@
 from setup_api import setup
-from endpoint.list_fields import ListFields
+from mailwizz.endpoint.list_fields import ListFields
 
 """
 SETUP THE API

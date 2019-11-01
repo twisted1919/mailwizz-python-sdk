@@ -1,9 +1,5 @@
-import sys
-
-sys.path.append('../mailwizz/')
-
-from base import Base
-from config import Config
+from mailwizz.base import Base
+from mailwizz.config import Config
 
 
 def setup():

@@ -1,5 +1,5 @@
 from setup_api import setup
-from endpoint.countries import Countries
+from mailwizz.endpoint.countries import Countries
 
 """
 SETUP THE API

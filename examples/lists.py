@@ -1,5 +1,5 @@
 from setup_api import setup
-from endpoint.lists import Lists
+from mailwizz.endpoint.lists import Lists
 
 """
 SETUP THE API

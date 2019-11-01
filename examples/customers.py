@@ -1,5 +1,5 @@
 from setup_api import setup
-from endpoint.customers import Customers
+from mailwizz.endpoint.customers import Customers
 
 """
 SETUP THE API

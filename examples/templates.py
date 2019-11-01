@@ -1,5 +1,5 @@
 from setup_api import setup
-from endpoint.templates import Templates
+from mailwizz.endpoint.templates import Templates
 
 """
 SETUP THE API

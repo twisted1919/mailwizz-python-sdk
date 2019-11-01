@@ -1,5 +1,5 @@
 from setup_api import setup
-from endpoint.campaigns_tracking import CampaignsTracking
+from mailwizz.endpoint.campaigns_tracking import CampaignsTracking
 
 """
 SETUP THE API

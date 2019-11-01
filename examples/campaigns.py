@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from setup_api import setup
-from endpoint.campaigns import Campaigns
+from mailwizz.endpoint.campaigns import Campaigns
 
 """
 SETUP THE API

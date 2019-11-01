@@ -1,5 +1,5 @@
 from setup_api import setup
-from endpoint.campaign_bounces import CampaignBounces
+from mailwizz.endpoint.campaign_bounces import CampaignBounces
 
 
 """
