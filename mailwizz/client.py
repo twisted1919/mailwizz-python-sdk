@@ -46,6 +46,10 @@ class Client(Base):
     # the DELETE params sent in the request.
     params_delete = {}
 
+    # Whether or not to pass data to requests using json kwarg
+    # Does not apply to GET
+    send_as_json = False
+
     def __init__(self, options):
         self.__populate(options)
 
@@ -119,3 +123,6 @@ class Client(Base):
 
         if 'headers' in options:
             self.headers = options['headers']
+
+        if 'send_as_json' in options:
+            self.send_as_json = options['send_as_json']

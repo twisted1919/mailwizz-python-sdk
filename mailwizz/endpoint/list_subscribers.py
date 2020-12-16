@@ -81,12 +81,14 @@ class ListSubscribers(Base):
 
         return client.request()
 
-    def update(self, list_uid: str, subscriber_uid: str, data: dict):
+    def update(self, list_uid: str, subscriber_uid: str,
+               data: dict, send_as_json: bool = False):
         """
         Update existing subscriber in given list
         :param list_uid:
         :param subscriber_uid:
         :param data:
+        :param send_as_json: whether or not to send body as json
         :return:
         """
 
@@ -98,7 +100,8 @@ class ListSubscribers(Base):
                     subscriber_uid=subscriber_uid
                 )
             ),
-            'params_put': data
+            'params_put': data,
+            'send_as_json': send_as_json
         })
 
         return client.request()
