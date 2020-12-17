@@ -47,7 +47,7 @@ class Client(Base):
     params_delete = {}
 
     # Whether or not to pass data to requests using json kwarg
-    # Does not apply to GET
+    # Only applies (currently) to PUT
     send_as_json = False
 
     def __init__(self, options):

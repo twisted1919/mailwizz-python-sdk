@@ -67,10 +67,7 @@ class Request(Base):
             return requests.get(**kwargs)
 
         if client.is_post_method():
-            if client.send_as_json:
-                kwargs['json'] = client.params_post
-            else:
-                kwargs['data'] = client.params_post
+            kwargs['data'] = client.params_post
             return requests.post(**kwargs)
 
         if client.is_put_method():
@@ -81,10 +78,7 @@ class Request(Base):
             return requests.put(**kwargs)
 
         if client.is_delete_method():
-            if client.send_as_json:
-                kwargs['json'] = client.params_put
-            else:
-                kwargs['data'] = client.params_put
+            kwargs['data'] = client.params_put
             return requests.delete(**kwargs)
 
     def _sign(self, request_url):
