@@ -48,18 +48,21 @@ class ListSubscribers(Base):
 
         return client.request()
 
-    def create(self, list_uid: str, data: dict):
+    def create(self, list_uid: str, data: dict,
+               send_as_json: bool = False):
         """
         Create a new subscriber in the given list
         :param list_uid:
         :param data:
+        :param send_as_json: whether or not to send body as json
         :return:
         """
 
         client = Client({
             'method': Client.METHOD_POST,
             'url': self.config.get_api_url('lists/{list_uid}/subscribers'.format(list_uid=list_uid)),
-            'params_post': data
+            'params_post': data,
+            'send_as_json': True
         })
 
         return client.request()
