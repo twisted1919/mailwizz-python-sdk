@@ -53,7 +53,7 @@ CREATE ONE TEMPLATE
 response = endpoint.create(data={
     'name': 'My API template ',
     # 'content': '<body>Hello</body>',
-    # 'content': open('template-example.html', 'r').read(),
+    # 'content': open('template-example.html', 'rb').read(),
     'archive': open('template-example.zip', 'rb').read(),
     'inline_css': 'no',  # yes|no
 })

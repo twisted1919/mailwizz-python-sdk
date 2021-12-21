@@ -72,7 +72,7 @@ response = endpoint.create({
     # required block, archive or template_uid or content : required.
     # the templates examples can be found here: Examples
     'template': {
-        # 'archive'        : open('template-example.zip', 'r').read(),
+        # 'archive'        : open('template-example.zip', 'rb').read(),
         'template_uid': 'TEMPLATE_UID',
         # 'content'         : open('template-example.html', 'rb').read(),
         'inline_css': 'no',  # yes | no

@@ -122,16 +122,16 @@ class Templates(Base):
         """
 
         try:
-            content = data['template']['content']
+            content = data['content']
             if content is not None:
-                data['template']['content'] = base64.b64encode(bytes(data['template']['content']))
+                data['content'] = base64.b64encode(bytes(content))
         except KeyError:
             pass
 
         try:
-            archive = data['template']['archive']
+            archive = data['archive']
             if archive is not None:
-                data['template']['archive'] = base64.b64encode(bytes(data['template']['archive']))
+                data['archive'] = base64.b64encode(bytes(archive))
         except KeyError:
             pass
 
