@@ -56,38 +56,30 @@ class Request(Base):
         """
 
         client = self.client
+        kwargs = {
+            'url': client.url,
+            'headers': client.headers,
+            'timeout': client.timeout
+        }
 
         if client.is_get_method():
-            return requests.get(
-                url=client.url,
-                params=client.params_get,
-                headers=client.headers,
-                timeout=client.timeout
-            )
+            kwargs['params'] = client.params_get
+            return requests.get(**kwargs)
 
         if client.is_post_method():
-            return requests.post(
-                url=client.url,
-                data=client.params_post,
-                headers=client.headers,
-                timeout=client.timeout
-            )
+            kwargs['data'] = client.params_post
+            return requests.post(**kwargs)
 
         if client.is_put_method():
-            return requests.put(
-                url=client.url,
-                data=client.params_put,
-                headers=client.headers,
-                timeout=client.timeout
-            )
+            if client.send_as_json:
+                kwargs['json'] = client.params_put
+            else:
+                kwargs['data'] = client.params_put
+            return requests.put(**kwargs)
 
         if client.is_delete_method():
-            return requests.delete(
-                url=client.url,
-                data=client.params_put,
-                headers=client.headers,
-                timeout=client.timeout
-            )
+            kwargs['data'] = client.params_put
+            return requests.delete(**kwargs)
 
     def _sign(self, request_url):
         """
