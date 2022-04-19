@@ -41,7 +41,8 @@ class Base(object):
                 'company': {},
                 'options': {},
                 'template': {},
-                'filter': {}
+                'filter': {},
+                'details': {}
             }
 
         data = {**default, **data}

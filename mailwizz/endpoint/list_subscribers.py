@@ -59,7 +59,7 @@ class ListSubscribers(Base):
         client = Client({
             'method': Client.METHOD_POST,
             'url': self.config.get_api_url('lists/{list_uid}/subscribers'.format(list_uid=list_uid)),
-            'params_post': data
+            'params_post': super()._prepare_body(data)
         })
 
         return client.request()
