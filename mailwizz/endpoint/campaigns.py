@@ -141,21 +141,27 @@ class Campaigns(Base):
         try:
             content = data['template']['content']
             if content is not None:
-                data['template']['content'] = base64.b64encode(bytes(data['template']['content']))
+                if type(content) is str:
+                    content = bytes(content, 'utf-8')
+                data['template']['content'] = base64.b64encode(content)
         except KeyError:
             pass
 
         try:
             archive = data['template']['archive']
             if archive is not None:
-                data['template']['archive'] = base64.b64encode(bytes(data['template']['archive']))
+                if type(archive) is str:
+                    archive = bytes(archive, 'utf-8')
+                data['template']['archive'] = base64.b64encode(archive)
         except KeyError:
             pass
 
         try:
             text = data['template']['plain_text']
             if text is not None:
-                data['template']['plain_text'] = base64.b64encode(bytes(data['template']['plain_text']))
+                if type(text) is str:
+                    text = bytes(text, 'utf-8')
+                data['template']['plain_text'] = base64.b64encode(text)
         except KeyError:
             pass
 

@@ -124,14 +124,18 @@ class Templates(Base):
         try:
             content = data['content']
             if content is not None:
-                data['content'] = base64.b64encode(bytes(content))
+                if type(content) is str:
+                    content = bytes(content, 'utf-8')
+                data['content'] = base64.b64encode(content)
         except KeyError:
             pass
 
         try:
             archive = data['archive']
             if archive is not None:
-                data['archive'] = base64.b64encode(bytes(archive))
+                if type(archive) is str:
+                    archive = bytes(archive, 'utf-8')
+                data['archive'] = base64.b64encode(archive)
         except KeyError:
             pass
 
