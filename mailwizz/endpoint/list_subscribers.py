@@ -315,8 +315,12 @@ class ListSubscribers(Base):
         d = {}
         i = 0
         for item in data:
-            for key in item.keys():
-                d['subscribers[' + str(i) + '][' + key + ']'] = item[key]
-            i = i + 1
+            for key, value in item.items():
+                if isinstance(value, dict):  # Check if the value is a dictionary
+                    for inner_key, inner_value in value.items():
+                        d['subscribers[' + str(i) + '][details][' + inner_key + ']'] = inner_value
+                else:
+                    d['subscribers[' + str(i) + '][' + key + ']'] = value
+            i += 1
 
         return d
