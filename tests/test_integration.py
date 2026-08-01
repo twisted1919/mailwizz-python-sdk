@@ -41,8 +41,9 @@ class TestIntegration:
         mock_get.assert_called_once()
         
         # Verify signing headers were added
-        call_kwargs = mock_get.call_args.kwargs
-        headers = call_kwargs['headers']
+        # Compatible with both old and new Mock call_args format
+        call_args = mock_get.call_args
+        headers = call_args.kwargs['headers'] if hasattr(call_args, 'kwargs') else call_args[1]['headers']
         
         assert 'X-MW-PUBLIC-KEY' in headers
         assert 'X-MW-TIMESTAMP' in headers
@@ -80,8 +81,8 @@ class TestIntegration:
         mock_post.assert_called_once()
         
         # Verify data was properly prepared (flattened)
-        call_kwargs = mock_post.call_args.kwargs
-        post_data = call_kwargs['data']
+        call_args = mock_post.call_args
+        post_data = call_args.kwargs['data'] if hasattr(call_args, 'kwargs') else call_args[1]['data']
         
         assert 'general[name]' in post_data
         assert post_data['general[name]'] == 'Test List'
@@ -103,8 +104,8 @@ class TestIntegration:
         assert response == mock_response
         mock_put.assert_called_once()
         
-        call_kwargs = mock_put.call_args.kwargs
-        headers = call_kwargs['headers']
+        call_args = mock_put.call_args
+        headers = call_args.kwargs['headers'] if hasattr(call_args, 'kwargs') else call_args[1]['headers']
         
         assert headers['X-HTTP-Method-Override'] == 'PUT'
 
@@ -123,12 +124,14 @@ class TestIntegration:
         assert response == mock_response
         mock_delete.assert_called_once()
         
-        call_kwargs = mock_delete.call_args.kwargs
-        headers = call_kwargs['headers']
+        call_args = mock_delete.call_args
+        headers = call_args.kwargs['headers'] if hasattr(call_args, 'kwargs') else call_args[1]['headers']
         
         assert headers['X-HTTP-Method-Override'] == 'DELETE'
         # Regression test: should use params_delete, not params_put
-        assert 'data' in call_kwargs
+        # Verify 'data' kwarg exists (exact params vary by version)
+        has_data = ('data' in call_args.kwargs) if hasattr(call_args, 'kwargs') else ('data' in call_args[1])
+        assert has_data
 
     @patch('mailwizz.request.requests.post')
     @patch('mailwizz.request.time.time')
@@ -150,8 +153,8 @@ class TestIntegration:
         assert response == mock_response
         mock_post.assert_called_once()
         
-        call_kwargs = mock_post.call_args.kwargs
-        post_data = call_kwargs['data']
+        call_args = mock_post.call_args
+        post_data = call_args.kwargs['data'] if hasattr(call_args, 'kwargs') else call_args[1]['data']
         
         # Verify bulk array format
         assert 'subscribers[0][EMAIL]' in post_data

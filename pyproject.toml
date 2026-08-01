@@ -7,7 +7,7 @@ name = "mailwizz-python-sdk"
 version = "1.0.4"
 description = "This repository contains the Python SDK for MailWizz EMA."
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 license = { text = "MIT" }
 authors = [
     { name = "twisted1919", email = "support@mailwizz.com" },
