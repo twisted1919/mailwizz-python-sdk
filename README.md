@@ -17,6 +17,29 @@ You can either download latest version of the code or you can install it via pip
 `pip install mailwizz-python-sdk`  
 Then follow the instructions from `examples/setup_api.py` file.
 
+### Development
+
+#### Running Tests
+The package includes a comprehensive test suite. To run tests:
+
+```bash
+# Install with dev dependencies
+pip install -e ".[dev]"
+
+# Run all tests
+pytest tests/
+
+# Run with coverage report
+pytest tests/ --cov=mailwizz --cov-report=term
+```
+
+Tests cover:
+- Configuration and validation
+- Client initialization and instance isolation
+- Request signing (HMAC-SHA1) matching PHP SDK format
+- All HTTP methods (GET, POST, PUT, DELETE)
+- Endpoint functionality
+- Regression tests for fixed bugs
 
 ### Python packaging reference    
 1. https://packaging.python.org/tutorials/packaging-projects/  

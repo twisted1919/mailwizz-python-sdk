@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mailwizz-python-sdk"
+version = "1.0.4"
+description = "This repository contains the Python SDK for MailWizz EMA."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [
+    { name = "twisted1919", email = "support@mailwizz.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "multidimensional-urlencode>=0.0.4",
+    "requests>=2.31.0",
+    "urllib3>=1.26.18",
+]
+
+[project.urls]
+Homepage = "https://www.mailwizz.com"
+Documentation = "https://api-docs.mailwizz.com/python"
+Source = "https://github.com/twisted1919/mailwizz-python-sdk"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["mailwizz*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--strict-markers",
+    "--tb=short",
+]

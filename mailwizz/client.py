@@ -22,31 +22,31 @@ class Client(Base):
     # Marker for the client version
     CLIENT_VERSION = '1.0'
 
-    # the method used in the request.
-    method = METHOD_GET
-
-    # the url where the remote calls will be made.
-    url = ''
-
-    # the default timeout for request.
-    timeout = 30
-
-    # the headers sent in the request.
-    headers = {}
-
-    # the GET params sent in the request.
-    params_get = {}
-
-    # the POST params sent in the request.
-    params_post = {}
-
-    # the PUT params sent in the request.
-    params_put = {}
-
-    # the DELETE params sent in the request.
-    params_delete = {}
-
     def __init__(self, options):
+        # the method used in the request.
+        self.method = self.METHOD_GET
+
+        # the url where the remote calls will be made.
+        self.url = ''
+
+        # the default timeout for request.
+        self.timeout = 30
+
+        # the headers sent in the request.
+        self.headers = {}
+
+        # the GET params sent in the request.
+        self.params_get = {}
+
+        # the POST params sent in the request.
+        self.params_post = {}
+
+        # the PUT params sent in the request.
+        self.params_put = {}
+
+        # the DELETE params sent in the request.
+        self.params_delete = {}
+
         self.__populate(options)
 
     def request(self):

@@ -259,8 +259,8 @@ class ListSubscribers(Base):
         """
 
         params_get = fields
-        params_get[page] = page
-        params_get[per_page] = per_page
+        params_get['page'] = page
+        params_get['per_page'] = per_page
 
         client = Client({
             'method': Client.METHOD_GET,

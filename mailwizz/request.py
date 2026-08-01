@@ -16,12 +16,9 @@ class Request(Base):
     Request is the request class used to send the requests to the API endpoints.
     """
 
-    client = None
-
-    params = {}
-
     def __init__(self, client):
         self.client = client
+        self.params = {}
 
     def send(self):
         """
@@ -84,7 +81,7 @@ class Request(Base):
         if client.is_delete_method():
             return requests.delete(
                 url=client.url,
-                data=client.params_put,
+                data=client.params_delete,
                 headers=client.headers,
                 timeout=client.timeout
             )
@@ -100,7 +97,7 @@ class Request(Base):
         config = self.config
         public_key = config.public_key
         private_key = config.private_key
-        timestamp = time.time()
+        timestamp = int(time.time())
 
         remote_addr = ''
         if 'REMOTE_ADDR' in os.environ:
@@ -124,7 +121,7 @@ class Request(Base):
         for key in s.keys():
             encoded_str += urllib.parse.quote(str(key)) + '=' + urllib.parse.quote(str(s[key])) + '&'
 
-        encoded_str.rsplit('&')
+        encoded_str = encoded_str.rstrip('&')
 
         separator = '?'
         if len(client.params_get) > 0 and '?' in request_url:
